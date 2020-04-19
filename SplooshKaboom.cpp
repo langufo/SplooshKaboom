@@ -179,9 +179,7 @@ void SplooshKaboom::comp_prob()
             std::vector<unsigned long>::iterator b = partialIDs[j].end();
             unsigned long first = (id >> 7 * (3 - j)) << (7 * (3 - j));
             unsigned long last = ((id >> 7 * (3 - j)) + 1) << (7 * (3 - j));
-            unsigned long x = *std::lower_bound(a, b, first);
-            unsigned long y = *std::upper_bound(a, b, last);
-            unsigned long n = std::upper_bound(a, b, last) -
+            unsigned long n = std::lower_bound(a, b, last) -
                               std::lower_bound(a, b, first);
             i->prob /= n;
         }
